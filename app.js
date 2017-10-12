@@ -1,17 +1,13 @@
-setTimeout(function(){
-  console.log('3 seconds have passed');
-}, 3000);
+const express = require('express');
 
-console.log('Hello World!');
-console.log(__dirname);
-console.log(__filename);
+var app = express();
 
-var time = 0;
+app.get('/', function(req, res){
+  res.send('this is the homepage');
+});
 
-var timer = setInterval(function() {
-  time += 2;
-  console.log(time + ' seconds have passed');
-  if(time > 5) {
-    clearInterval(timer);
-  }
-}, 2000)
+app.get('/contact', function(req, res){
+  res.send('this is the contact page');
+});
+
+app.listen(3000);
